@@ -1,9 +1,21 @@
-
+import Banner from "../components/Banner";
+import BusinessTravelPost from "../components/BusinessTravelPost";
+import LatestPost from "../components/LatestPost";
+import MostPopularPost from "../components/MostPopularPost";
+import DefaultLayout from "../layouts/defaultLayout/defaultLayout";
 
 export default function Home() {
+
+  const title = "Blog Website";
+
   return (
-    <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
+    <>
+      <DefaultLayout title={title}>
+        <Banner/>
+        <LatestPost/>
+        <MostPopularPost/>
+        <BusinessTravelPost/>
+      </DefaultLayout>
+    </>
   )
 }
