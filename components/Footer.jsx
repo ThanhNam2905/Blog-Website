@@ -28,8 +28,10 @@ export default function Footer() {
                             <a><ImYoutube title="Youtube" className="text-[#888888] w-6 h-6 cursor-pointer" /></a>
                         </Link>
                     </div>
-                    <p className="text-gray-800 my-5">Copyright &copy;2022 All rights reserved | This template is made with by Daily Tuition</p>
-                    <a href="/" className="text-md block text-center font-bold text-indigo-600 hover:!underline hover:underline-offset-4">Terms & Condition</a>
+                    <p className="text-gray-800 my-5">Copyright &#174; 2022 All rights reserved | This template is made with by Daily Tuition</p>
+                    <Link href={"/"}>
+                        <a className="text-md block text-center font-bold text-indigo-600 hover:!underline hover:underline-offset-4">Terms &#38; Condition</a>
+                    </Link>
                 </div>
             </div>
         </footer>
