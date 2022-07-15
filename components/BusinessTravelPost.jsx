@@ -36,11 +36,13 @@ const PostItem = () => {
         <div className="flex gap-x-6">
             <div className="image flex flex-col justify-start">
                 <Link href={"/"}>
-                    <Image
-                        src={"/images/img1.jpg"}
-                        width={300} height={300}
-                        className='rounded-md'
-                        objectFit='contain'/>
+                    <a>
+                        <Image
+                            src={"/images/img1.jpg"}
+                            width={300} height={300}
+                            className='rounded-md'
+                            objectFit='contain'/>
+                    </a>
                 </Link>
             </div>
             <div className="info">
