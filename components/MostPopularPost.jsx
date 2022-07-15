@@ -1,7 +1,7 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper';
-import "swiper/css/navigation";
+import { Autoplay, Pagination } from 'swiper';
+import "swiper/css/pagination";
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,27 +14,35 @@ export default function MostPopularPost() {
             <h2 className="heading__2">Most Popular</h2>
 
             <Swiper
+                slidesPerView={2}
+                spaceBetween={40}
                 loop={true}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
-                navigation={true}
-                modules={[ Autoplay, Navigation ]}
-                breakpoints={{
-                    0: {
-                      slidesPerView: 1,
-                    },
-                    990: {
-                      slidesPerView: 2,
-                      spaceBetween: 60,
-                    },
-                  }}>
-                <SwiperSlide>{PostItem()}</SwiperSlide>
-                <SwiperSlide>{PostItem()}</SwiperSlide>
-                <SwiperSlide>{PostItem()}</SwiperSlide>
-                <SwiperSlide>{PostItem()}</SwiperSlide>
-                <SwiperSlide>{PostItem()}</SwiperSlide>
+                pagination={{
+                    dynamicBullets: true,
+                }}
+                grabCursor={true}
+                modules={[ Autoplay, Pagination ]}
+                // breakpoints={{
+                //     0: {
+                //         slidesPerView: 1,
+                //         spaceBetween: 20,
+                //       },
+                //     991: {
+                //       slidesPerView: 2,
+                //       spaceBetween: 60,
+                //     },
+                // }}
+                className="mySwiper">
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
+                 <SwiperSlide>{PostItem()}</SwiperSlide>
             </Swiper>
         </section>
     )
@@ -45,11 +53,13 @@ const PostItem = () => {
         <div className="item">
             <div className="image">
                 <Link href={"/"}>
-                    <Image
-                        src={"/images/img1.jpg"}
-                        width={650} height={400}
-                        className='rounded-md'
-                        objectFit='cover'/>
+                    <a>
+                        <Image
+                            src={"/images/img1.jpg"}
+                            width={650} height={400}
+                            className='rounded-md'
+                            objectFit='cover'/>
+                    </a>
                 </Link>
             </div>
             <div className="info flex flex-col ">

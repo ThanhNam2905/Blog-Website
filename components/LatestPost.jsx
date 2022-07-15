@@ -24,10 +24,12 @@ const PostItem = () => {
         <div className="item">
             <div className="image">
                 <Link href={"/"}>
-                    <Image
-                        src={"/images/img1.jpg"}
-                        width={500} height={350}
-                        className='rounded' />
+                    <a>
+                        <Image
+                            src={"/images/img1.jpg"}
+                            width={500} height={350}
+                            className='rounded' />
+                    </a>
                 </Link>
             </div>
             <div className="info flex flex-col ">
