@@ -1,8 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import Author from "./_children/Author"
+import getPost from "../utils/fetchData";
 
 export default function LatestPost() {
+    
+    getPost(3).then(res => console.log(res));
+
     return (
         <section className="container mx-auto py-10 md:px-20">
             <h2 className="heading__2">Latest Post</h2>
@@ -28,6 +32,7 @@ const PostItem = () => {
                         <Image
                             src={"/images/img1.jpg"}
                             width={500} height={350}
+                            alt='latestPost Image'
                             className='rounded' />
                     </a>
                 </Link>

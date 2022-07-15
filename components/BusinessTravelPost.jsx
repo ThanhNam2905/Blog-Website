@@ -40,6 +40,7 @@ const PostItem = () => {
                         <Image
                             src={"/images/img1.jpg"}
                             width={300} height={300}
+                            alt='MusinessTravelPost Image'
                             className='rounded-md'
                             objectFit='contain'/>
                     </a>

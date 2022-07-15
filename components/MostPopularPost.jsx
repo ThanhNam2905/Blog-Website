@@ -58,6 +58,7 @@ const PostItem = () => {
                             src={"/images/img1.jpg"}
                             width={650} height={400}
                             className='rounded-md'
+                            alt='MostPopularPost Image'
                             objectFit='cover'/>
                     </a>
                 </Link>
