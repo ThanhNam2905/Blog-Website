@@ -33,4 +33,8 @@
 
             lg:text-3xl;
   }
+
+  .btn--loader {
+    @apply border-gray-300 border-[5px] w-10 h-10 rounded-full ease-linear border-t-blue-600 animate-spin;
+  }
 }

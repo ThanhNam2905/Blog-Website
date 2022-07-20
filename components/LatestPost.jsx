@@ -1,19 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
 import Author from "./_children/Author"
-import getPost from "../utils/fetchData";
 import fetcher from "../libs/swr/fetcher";
+import Spinner from "./_children/Spinner";
+import Error from "./_children/Error";
 
 export default function LatestPost() {
 
     const { data, isLoading, isError } = fetcher('api/posts');
     // console.log(data);
-    if(isLoading) return <div>Loading ...</div>
-    if(isError) return <div>Error ...</div>
+    if(isLoading) return <Spinner></Spinner>
+    if(isError) return <Error></Error>
 
     return (
         <section className="container mx-auto py-10 md:px-20">
             <h2 className="heading__2">Latest Post</h2>
+            <Spinner></Spinner>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12">
                 {
