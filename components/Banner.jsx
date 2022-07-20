@@ -9,19 +9,33 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 // Import required modules
 import { Autoplay } from 'swiper';
+import fetcher from '../libs/swr/fetcher';
+import Spinner from './_children/Spinner';
+import Error from './_children/Error';
 
 
 export default function Banner() {
 
-    const Slide = () => {
+    const { data, isLoading, isError } = fetcher('api/trending');
+    console.log(data);
+
+    if(isLoading) return <Spinner></Spinner>
+    if(isError) return <Error></Error>
+
+    const Slide = ({post}) => {
+
+        const { id, title, img, category, published, author, description } = post;
+
         return (
-            <div className='grid grid-cols-1 md:grid-cols-2'>
+            <div className='grid grid-cols-1 gap-x-4 md:grid-cols-2'>
                 <div className="image">
                     <Link href={"/"}>
                         <a>
-                            <Image src="/images/img1.jpg"
-                                width={600} height={600} 
-                                alt='Banner Image'/>
+                            <Image src={img || '/'}
+                                width={640} height={600} 
+                                alt='Banner Image'
+                                objectFit='fill' 
+                                className='rounded-md'/>
                         </a>
                     </Link>
 
@@ -29,19 +43,19 @@ export default function Banner() {
                 <div className="info flex flex-col justify-center">
                     <div className='text-base lg:text-xl mb-1.5 lg:mb-3'>
                         <Link href={"/"}>
-                            <a className='text-orange-500 hover:text-orange-700'>Business, Travel</a>
+                            <a className='text-orange-500 hover:text-orange-700'>{category || "Unknown"}</a>
                         </Link>
-                        <span className='text-gray-700 hover:text-gray-500'>- July 14, 2022</span>
+                        <span className='text-gray-700 hover:text-gray-500'>- {published || "Unknown"}</span>
                     </div>
                     <div className='title'>
-                        <h3 className='text-3xl md:text-6xl text-gray-800 font-bold hover:text-gray-600'>Your most unhappy customers are your greatest source of learning</h3>
+                        <h3 className='text-3xl md:text-[40px] leading-[3.0rem] text-gray-800 font-bold '>{title || "Unknown"}</h3>
                     </div>
-                    <div className="description">
-                        <p className='text-gray-500 mt-1.5 md:mt-3 py-2 md:py-4 leading-7'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorem quos reprehenderit omnis dignissimos, porro, eaque excepturi reiciendis, accusamus cum ex.</p>
+                    <div className="description ">
+                        <p className='text-gray-800 text-lg leading-7 h-[180px] overflow-y-hidden line-clamp-6 mt-1.5 md:mt-3 py-2 md:py-4'>{description || "Unknown"}</p>
                     </div>
 
                     {/* Author Components */}
-                    <Author />
+                    { author ? <Author { ...author}/> : <> </>}
                 </div>
             </div>
         )
@@ -65,10 +79,13 @@ export default function Banner() {
                     }}
                     modules={[Autoplay]}
                 >
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
-                    <SwiperSlide>{Slide()}</SwiperSlide>
+                    {
+                        data.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <Slide post={item}/>
+                            </SwiperSlide>
+                        ))
+                    }  
                 </Swiper>
             </div>
         </section>

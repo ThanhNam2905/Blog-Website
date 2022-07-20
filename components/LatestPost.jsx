@@ -15,7 +15,6 @@ export default function LatestPost() {
     return (
         <section className="container mx-auto py-10 md:px-20">
             <h2 className="heading__2">Latest Post</h2>
-            <Spinner></Spinner>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12">
                 {
@@ -32,7 +31,7 @@ export default function LatestPost() {
 
 const PostItem = ({post}) => {
 
-    const { id, title, img, category, published, author } = post;
+    const { id, title, img, subtitle, category, published, author } = post;
     
     if(!post) return null;
 
@@ -60,10 +59,10 @@ const PostItem = ({post}) => {
                     <h3 className='text-xl my-1.5 md:my-2.5 text-gray-800 font-bold hover:text-gray-600'>{title || "Unknown"}</h3>
                 </div>  
                 <div className="description">
-                    <p className='text-gray-500 mt-1.5 leading-7'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolorem quos reprehenderit omnis dignissimos, porro, eaque excepturi reiciendis, accusamus cum ex.</p>
+                    <p className='text-gray-500 mt-1.5 leading-7 line-clamp-2 h-16'>{subtitle || "Unknown"}</p>
                 </div>  
                 {/* Author Components */}
-                <Author />    
+                { author ? <Author { ... author}/> : <> </>}    
             </div>
         </div>
     )
