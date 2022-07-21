@@ -41,7 +41,12 @@
   .swiper__custom .swiper-pagination.swiper-pagination-bullets {
     @apply -bottom-2
   }
-  .swiper__custom .swiper-pagination.swiper-pagination-bullets span {
-    @apply w-4 h-4;
+  .swiper__custom .swiper-pagination.swiper-pagination-bullets span,
+  .swiper__banner--custom .swiper-pagination.swiper-pagination-bullets span {
+    @apply w-3.5 h-3.5;
+  }
+
+  .swiper__banner--custom .swiper-pagination.swiper-pagination-bullets {
+    @apply -bottom-1
   }
 }

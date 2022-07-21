@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function Author({ name, img, designation }) {
+    if(!name && !img && !designation) return null;
 
     return (
         <div className="author flex py-4 space-x-5">
