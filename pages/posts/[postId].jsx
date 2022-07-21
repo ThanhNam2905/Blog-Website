@@ -18,7 +18,7 @@ export default function Page({fallback}) {
     const { data, isLoading, isError } = fetcher(`api/posts/${postId}`);
 
     if(isLoading) return <Spinner></Spinner>
-    if(isError) return <Error></Error>
+    if(isError) return <Error>{isError}</Error>
 
     return (
         <SWRConfig value={{fallback}}>
