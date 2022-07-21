@@ -45,7 +45,7 @@ const PostItem = ({ post }) => {
     return (
         <div className="flex gap-x-6">
             <div className="image flex flex-col justify-start">
-                <Link href={"/"}>
+                <Link href={`posts/${id}`}>
                     <a>
                         <Image
                             src={img || "/"}
@@ -58,13 +58,15 @@ const PostItem = ({ post }) => {
             </div>
             <div className="info">
                 <div>
-                    <Link href={"/"}>
+                    <Link href={`posts/${id}`}>
                         <a className='text-orange-500 hover:text-orange-700'>{category || "Undefined"}</a>
                     </Link>
                     <span className='text-gray-700 hover:text-gray-500'>- {published || "Undefined"}</span>
                 </div>
                 <div className='title'>
-                    <h3 className='text-xl my-1.5 md:my-2.5 text-gray-800 font-bold hover:text-gray-600'>{title || "Undefined"}</h3>
+                    <Link href={`posts/${id}`}>
+                        <a className='text-xl my-1.5 md:my-2.5 text-gray-800 font-bold hover:text-gray-600'>{title || "Undefined"}</a>
+                    </Link>
                 </div> 
                 {/* Author Components */}
                 { author ? <Author { ...author}/> : <></>}   

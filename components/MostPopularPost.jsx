@@ -23,28 +23,31 @@ export default function MostPopularPost() {
             <h2 className="heading__2">Most Popular</h2>
 
             <Swiper
-                slidesPerView={2}
-                spaceBetween={40}
                 loop={true}
                 autoplay={{
-                    delay: 3000,
+                    delay: 3500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
-                    dynamicBullets: true
+                    dynamicBullets: true,
+                    clickable: true
                 }}
                 grabCursor={true}
                 modules={[ Autoplay, Pagination ]}
-                // breakpoints={{
-                //     0: {
-                //         slidesPerView: 1,
-                //         spaceBetween: 20,
-                //       },
-                //     991: {
-                //       slidesPerView: 2,
-                //       spaceBetween: 60,
-                //     },
-                // }}
+                breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    991: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                }}
                 className="swiper__custom">
                     {
                         data.map((item, index) => (
@@ -65,7 +68,7 @@ const PostItem = ({post}) => {
     return (
         <div className="item">
             <div className="image">
-                <Link href={"/"}>
+                <Link href={`posts/${id}`}>
                     <a>
                         <Image
                             src={img || "/"}
@@ -76,15 +79,17 @@ const PostItem = ({post}) => {
                     </a>
                 </Link>
             </div>
-            <div className="info flex flex-col ">
+            <div className="info flex flex-col mt-2.5">
                 <div>
-                    <Link href={"/"}>
+                    <Link href={`posts/${id}`}>
                         <a className='text-orange-500 hover:text-orange-700'>{category || "Undefined"}</a>
                     </Link>
                     <span className='text-gray-700 hover:text-gray-500'>- {published || "Undefined"}</span>
                 </div>
                 <div className='title'>
-                    <h3 className='text-xl lg:text-[28px] leading-9 my-1.5 md:my-2.5 text-gray-800 font-bold hover:text-gray-600'>{title || "Undefined"}</h3>
+                    <Link href={`posts/${id}`}>
+                        <a className='text-xl lg:text-[28px] leading-9 my-1.5 md:my-2.5 text-gray-800 font-bold hover:text-gray-600'>{title || "Undefined"}</a>
+                    </Link>
                 </div>  
                 <div className="description">
                     <p className='text-gray-700 line-clamp-2 mt-1.5 leading-7'>{description || "Undefined"}</p>
