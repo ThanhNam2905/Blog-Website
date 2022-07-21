@@ -2,7 +2,7 @@ import Banner from "../components/Banner";
 import BusinessTravelPost from "../components/BusinessTravelPost";
 import LatestPost from "../components/LatestPost";
 import MostPopularPost from "../components/MostPopularPost";
-import DefaultLayout from "../layouts/defaultLayout/defaultLayout";
+import DefaultLayout from "../layouts/defaultLayout/DefaultLayout";
 
 export default function Home() {
 

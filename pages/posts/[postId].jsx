@@ -1,4 +1,4 @@
-import DefaultLayout from "../../layouts/defaultLayout/defaultLayout";
+import DefaultLayout from "../../layouts/defaultLayout/DefaultLayout";
 import Image from 'next/image';
 import Author from "../../components/_children/Author";
 import RelatedPost from "../../components/_children/RelatedPost";
@@ -26,7 +26,7 @@ export default function Page({fallback}) {
     )
 }
 
-function Article({id, title, img, subtitle, author, description }) {
+function Article({ title, img, subtitle, author, description }) {
 
     return (
         <>
