@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import fetcher from "../../libs/swr/fetcher";
 import Spinner from "./Spinner";
+import Error from "./Error";
 
 export default function RelatedPost() {
 
