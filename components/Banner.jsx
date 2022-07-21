@@ -17,7 +17,6 @@ import Error from './_children/Error';
 export default function Banner() {
 
     const { data, isLoading, isError } = fetcher('api/trending');
-    console.log(data);
 
     if(isLoading) return <Spinner></Spinner>
     if(isError) return <Error></Error>

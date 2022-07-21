@@ -8,6 +8,7 @@ import Spinner from "../../components/_children/Spinner";
 import Error from "../../components/_children/Error";
 import { useRouter } from 'next/router';
 import { SWRConfig } from 'swr';
+import data from "../api/data"
 
 export default function Page({fallback}) {
 
@@ -61,7 +62,7 @@ function Article({ title, img, subtitle, author, description }) {
 
 
 export async function getStaticProps({params}) {
-    const posts = await getPost(params.postId);
+    const posts = data.Posts;
 
     return {
         props: {
@@ -73,7 +74,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const posts = await getPost();
+    const posts = data.Posts;
 
     const paths = posts.map(item => {
         return {
